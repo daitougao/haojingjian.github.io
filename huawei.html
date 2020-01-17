@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh" xml:lang="zh">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="description" content="华为手机一键精简系统">
+    <link href="css.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="favicon.ico">
+    <title>华为手机一键精简系统</title>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script>
+function changeState(isChecked){
+  var checkpoint = document.getElementsByTagName("input");
+      for(var i = 0; i<checkpoint.length; i++){
+        if(checkpoint[i].type=="checkbox"){
+           checkpoint[i].checked=isChecked;}}
+        };
+
+$(document).ready(function(){
+  $("input[name='item']").change(function(){
+    var checkeditems = $("input[name='item']:checked");
+    var items = [];
+    for(var i = 0; i<checkeditems.length; i++) {
+      items.push(checkeditems[i].value);
+    }
+    $("#itemlist").val(items.join(" && "));
+
+  });
+  
+
+  $("#copyBtn").click(function() {
+    var copyText = document.getElementById("itemlist");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("已复制代码：" + copyText.value);
+  });
+});
+  
+</script>
+    
+    
+  </head>
+ <body>
+   <header>华为手机一键精简系统</header>
+    <content>  
+      <p>首先请在电脑上<a target="_blank" href="https://developer.android.com/studio/releases/platform-tools.html"><b>下载官方 SDK Platform-Tools 软件</b></a>。在命令窗口调试 adb devices，能连接到手机后再使用代码。</p>
+      <p>
+<b>以下内容选中则删除 (官方软件可以通过应用市场安装)：</b><br>
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.android.mediacenter">&nbsp;华为音乐&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.health">&nbsp;华为运动&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.android.stk">&nbsp;SIM 卡应用&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.gamebox">&nbsp;游戏中心&nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.himovie">&nbsp;华为视频&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.bd">&nbsp;用户体验计划&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.ihealth">&nbsp;华为健康&nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.huawei.hiskytone">&nbsp;天际通&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.android.inputmethod.latin">&nbsp;AOSP输入法&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm uninstall --user 0 com.android.browser">&nbsp;华为浏览器&nbsp;&nbsp;<br>
+<br>
+<b>以下内容选中则停用（可重新启用）：</b><br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.pushagent">&nbsp;华为手机推送服务&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.hwouc">&nbsp;系统更新<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.intelligent">&nbsp;情景智能 (第三方应用)&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.parentcontrol">&nbsp;学生模式&nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.wallet">&nbsp;华为钱包&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.phoneservice">&nbsp;会员服务&nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.google.android.marvin.talkback">&nbsp;TalkBack (视力障碍语音辅助)<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.internal.app">&nbsp;华为分享工具&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.yellowpage">&nbsp;华为官方黄页&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.dreams.basic">&nbsp;基本互动屏保<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.printspooler">&nbsp;打印处理服务&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.keyguard">&nbsp;华为杂志锁屏&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.svox.pico">&nbsp;Pico TTS &nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.contactscamcard">&nbsp;名片全能王(通讯录集成)&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.hiboard">&nbsp;负一屏 (第三方)<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.dreams.phototable">&nbsp;图片屏保程序&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.hwpay">&nbsp;华为钱包安全支付<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.wallpaper.livepicker">&nbsp;动态壁纸&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.yellowpage">&nbsp;华为黄页&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.vassistant">&nbsp;语音助手<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.iflytek.speechsuite">&nbsp;讯飞语音引擎&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.hwdetectrepair">&nbsp;智能检测&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.trustagent">&nbsp;华为智能解锁<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.internetaudioservice">&nbsp;智能线控&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.livewallpaper.matewenty">&nbsp;华山动态主题&nbsp;&nbsp;<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.suggestion">&nbsp;情景智能 (融合在左划页面中)&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.android.keyguard">&nbsp;原生锁屏&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.google.android.backuptransport"> Google 备份传输<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.google.android.gsf">&nbsp;Google 服务框架 &nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.google.android.onetimeinitializer">&nbsp;Google Apps 系统初装<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.google.android.partnersetup">&nbsp;谷歌助手&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.internal.app">&nbsp;Huawei Share &nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.HwMultiScreenShot">&nbsp;滚动截屏&nbsp;&nbsp;
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.android.mirrorshare">&nbsp;无线分享<br>
+<input type="checkbox" name="item" value="adb shell pm disable-user com.huawei.hwapplet">&nbsp;旅行助手策略管理<br>
+<br><br>
+
+<input type="checkbox" name="item" value="adb kill-server" onclick="changeState(this.checked)"> 全选/全不选<br>
+<textarea id="itemlist"></textarea><br>
+<input type="button" id="copyBtn" value="一键复制所有代码" />
+      </p> 
+      <img src="https://dalu.life/img/mukuan.jpg" /><br><br><p>&nbsp;</p><br><br>
+     </content>
+ </body>
+</html>
