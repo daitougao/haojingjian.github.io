@@ -8,39 +8,6 @@
     <link href="https://haojingjian.com/style/css.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="favicon.ico">
     <title>华为手机一键精简系统</title>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script>
-function changeState(isChecked){
-  var checkpoint = document.getElementsByTagName("input");
-      for(var i = 0; i<checkpoint.length; i++){
-        if(checkpoint[i].type=="checkbox"){
-           checkpoint[i].checked=isChecked;}}
-        };
-
-$(document).ready(function(){
-  $("input[name='item']").change(function(){
-    var checkeditems = $("input[name='item']:checked");
-    var items = [];
-    for(var i = 0; i<checkeditems.length; i++) {
-      items.push(checkeditems[i].value);
-    }
-    $("#itemlist").val(items.join(" && "));
-
-  });
-  
-
-  $("#copyBtn").click(function() {
-    var copyText = document.getElementById("itemlist");
-    copyText.select();
-    document.execCommand("Copy");
-    alert("已复制代码：" + copyText.value);
-  });
-});
-  
-</script>
-    
-    
   </head>
  <body>
    <header>华为手机一键精简系统</header>
@@ -104,5 +71,35 @@ $(document).ready(function(){
       <img src="https://haojingjian.com/img/mukuan.jpg" /><br><br>
         <a href="https://haojingjian.com/index.html">返回首页</a><p>&nbsp;</p><br><br>
      </content>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script>
+function changeState(isChecked){
+  var checkpoint = document.getElementsByTagName("input");
+      for(var i = 0; i<checkpoint.length; i++){
+        if(checkpoint[i].type=="checkbox"){
+           checkpoint[i].checked=isChecked;}}
+        };
+
+$(document).ready(function(){
+  $("input[name='item']").change(function(){
+    var checkeditems = $("input[name='item']:checked");
+    var items = [];
+    for(var i = 0; i<checkeditems.length; i++) {
+      items.push(checkeditems[i].value);
+    }
+    $("#itemlist").val(items.join(" && "));
+
+  });
+  
+
+  $("#copyBtn").click(function() {
+    var copyText = document.getElementById("itemlist");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("已复制代码：" + copyText.value);
+  });
+});
+  
+</script>
  </body>
 </html>
