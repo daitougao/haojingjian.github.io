@@ -12,7 +12,7 @@
   	.date {font-size:10px; margin-bottom:0px; margin-top:0px; color:#686868;}
   	.li {line-height: 23px; list-style-type:none;}
   	.copyright {font-size:13px; color:#000000;}
-  	textarea {font-size:13px; color:#000000; width: 900px; margin:auto; -webkit-text-size-adjust:100%;}
+  	textarea {font-size:13px; color:#000000; width: 85%; margin:auto; -webkit-text-size-adjust:100%;}
   	input {font-size:15px;}
 } 
 
@@ -25,7 +25,7 @@
   	.date {font-size:11px; margin-bottom:0px; margin-top:0px; color:#686868;}
   	.li {line-height: 26px; list-style-type:none;}
    	.copyright {font-size:15px; color:#000000; }
-	textarea {font-size:15px; color:#000000; width: 900px; margin:auto; -webkit-text-size-adjust:100%;}
+	textarea {font-size:15px; color:#000000; width: 85%; margin:auto; -webkit-text-size-adjust:100%;}
     input {font-size:15px;}
 } 
 
